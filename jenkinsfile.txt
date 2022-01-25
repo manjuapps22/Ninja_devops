@@ -62,8 +62,9 @@ pipeline {
                   sh "ssh ubuntu@10.0.4.48 whoami && pwd"
                   sh "ssh ubuntu@10.0.4.48 pwd"
                   sh "ssh ubuntu@10.0.4.48 docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
-                   sh "ssh ubuntu@10.0.4.48 docker rm -f test " 
+                  sh "ssh ubuntu@10.0.4.48 docker rm -f test " 
                   sh "ssh ubuntu@10.0.4.48 docker run --name test -p 80:8080 -d ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+
               }
               }
           }
